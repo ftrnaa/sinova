@@ -4,13 +4,11 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
-const BASE_URL = "https://sinovabackend-production.up.railway.app";
 
 const LOGIN_ENDPOINTS = [
   { role: "pengguna", url: "/auth/pengguna/login" },
   { role: "penyedia", url: "/auth/penyedia/login" },
   { role: "admin", url: "/auth/admin/login" },
-  { role: "super_admin", url: "/auth/superadmin/login" },
 ];
 
 // ============== JWT DECODE ==============
@@ -24,6 +22,11 @@ function decodeJwt(token: string) {
 
 export default function LoginPage() {
   const router = useRouter();
+const BASE_URL =
+    process.env.NEXT_PUBLIC_API_URL ??
+    "https://sinovabackend-production.up.railway.app";
+
+  console.log("BASE_URL (runtime):", BASE_URL);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -100,10 +103,16 @@ export default function LoginPage() {
           {error && <p className="text-red-600 mb-3">{error}</p>}
 
           <div className="flex gap-4 mb-4">
-            
+            <button className="border border-gray-300 p-2 rounded-full text-[#1F4E73] hover:bg-blue-100">
+              <FaGoogle />
+            </button>
+
+            <button className="border border-gray-300 p-2 rounded-full text-[#1F4E73] hover:bg-blue-100">
+              <FaGithub />
+            </button>
           </div>
 
-          
+          <p className="text-sm text-gray-600 mb-6">atau gunakan akun Anda</p>
 
           <form onSubmit={handleSubmit} className="w-full">
             <input
