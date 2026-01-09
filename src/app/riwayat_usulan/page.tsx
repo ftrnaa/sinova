@@ -24,7 +24,7 @@ export default function RiwayatUsulanPage() {
   const [listPeminat, setListPeminat] = useState<PenyediaItem[]>([]);
   const [search, setSearch] = useState("");
 
-  const BASE_URL = "http://localhost:4001";
+const BASE_URL = "https://sinovabackend-production.up.railway.app";
 
   // ============================================
   // FETCH USULAN

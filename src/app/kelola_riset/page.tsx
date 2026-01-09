@@ -3,8 +3,9 @@
 import { useState, useEffect, useMemo } from 'react';
 import SidebarPenyedia from '@/components/ui/sidebar_penyedia';
 
-const API_URL = "http://localhost:4001/api/riset";
-const KATEGORI_API_URL = "http://localhost:4001/api/kategori";
+const API_URL = "https://sinovabackend-production.up.railway.app/api/riset";
+const KATEGORI_API_URL = "https://sinovabackend-production.up.railway.app/api/kategori";
+
 
 interface Riset {
   id: string;

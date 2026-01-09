@@ -33,7 +33,8 @@ const Dashboard_pengguna = () => {
   const [username, setUsername] = useState<string>("");
 
 
-  const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4001";
+const BASE_URL = "https://sinovabackend-production.up.railway.app";
+
 
   useEffect(() => {
     const fetchDashboardData = async () => {

@@ -15,11 +15,14 @@ export default function ForgotPasswordPage() {
   const handleSendOTP = async () => {
     if (!email) return alert("Email wajib diisi!");
 
-   const res = await fetch("http://localhost:4001/api/lupasandi/kirim-otp", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ email }),
-});
+   const res = await fetch(
+  "https://sinovabackend-production.up.railway.app/api/lupasandi/kirim-otp",
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  }
+);
 
 
     const data = await res.json();
@@ -38,11 +41,14 @@ export default function ForgotPasswordPage() {
   const handleVerifyOTP = async () => {
     if (!otp) return alert("OTP wajib diisi!");
 
-   const res = await fetch("http://localhost:5000/api/lupasandi/verifikasi-otp", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ email, otp }),
-});
+  const res = await fetch(
+  "https://sinovabackend-production.up.railway.app/api/lupasandi/verifikasi-otp",
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, otp }),
+  }
+);
 
 
     const data = await res.json();
@@ -66,16 +72,13 @@ export default function ForgotPasswordPage() {
     if (newPassword.length < 6)
       return alert("Password minimal 6 karakter!");
 
-   const res = await fetch("http://localhost:5000/api/lupasandi/reset-kata-sandi", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    email,
-    kataSandiBaru: newPassword,
-  }),
-});
-
-
+   const res = await fetch(
+  "https://sinovabackend-production.up.railway.app/api/lupasandi/reset-kata-sandi",
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, kataSandiBaru: newPassword }),
+  });
 
     const data = await res.json();
 

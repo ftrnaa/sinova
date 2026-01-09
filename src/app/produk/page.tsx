@@ -19,7 +19,7 @@ export default function ProdukPage() {
   const [produk, setProduk] = useState<Produk[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:4001/produk")
+    fetch("https://sinovabackend-production.up.railway.app/produk")
       .then(res => res.json())
       .then((data: Produk[]) => { // Opsional: Mendefinisikan tipe data yang diterima dari JSON
         setProduk(data);

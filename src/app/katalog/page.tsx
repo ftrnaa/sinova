@@ -34,8 +34,7 @@ interface Kategori {
 }
 
 /* ================== CONSTANTS ================== */
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4001";
-
+const API_BASE_URL = "https://sinovabackend-production.up.railway.app";
 /* ================== PAGE ================== */
 export default function KatalogPage() {
   const router = useRouter();
@@ -63,7 +62,7 @@ export default function KatalogPage() {
   /* ================== FETCH CATEGORIES ================== */
   const fetchCategories = async () => {
     try {
-      const res = await fetch(`${API_BASE_URL}/api/kategori`);
+const res = await fetch(`${API_BASE_URL}/api/kategori`);
 
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
@@ -87,7 +86,7 @@ export default function KatalogPage() {
     if (selectedCategory) params.append("kategori", selectedCategory);
 
     try {
-      const res = await fetch(`${API_BASE_URL}/api/public/produk/katalog?${params}`);
+     const res = await fetch(`${API_BASE_URL}/api/public/produk/katalog?${params}`);
       
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
@@ -98,17 +97,17 @@ export default function KatalogPage() {
 
       const mapped: Inovasi[] = data.map((item: any) => {
         // Ambil foto utama atau foto pertama dari foto_list
-        let mainImage = '';
-        if (item.foto_produk) {
-          mainImage = `${API_BASE_URL}/${item.foto_produk.replace(/\\/g, "/")}`;
-        } else if (item.foto_list && item.foto_list.length > 0) {
-          mainImage = `${API_BASE_URL}/${item.foto_list[0].path.replace(/\\/g, "/")}`;
-        }
+       let mainImage = '';
+if (item.foto_produk) {
+  mainImage = `${API_BASE_URL}/${item.foto_produk.replace(/\\/g, "/")}`;
+} else if (item.foto_list && item.foto_list.length > 0) {
+  mainImage = `${API_BASE_URL}/${item.foto_list[0].path.replace(/\\/g, "/")}`;
+}
 
-        // Ambil semua foto dari foto_list
-        const allImages = item.foto_list && item.foto_list.length > 0
-          ? item.foto_list.map((f: any) => `${API_BASE_URL}/${f.path.replace(/\\/g, "/")}`)
-          : [mainImage];
+const allImages = item.foto_list && item.foto_list.length > 0
+  ? item.foto_list.map((f: any) => `${API_BASE_URL}/${f.path.replace(/\\/g, "/")}`)
+  : [mainImage];
+
 
         return {
           id: item.id,

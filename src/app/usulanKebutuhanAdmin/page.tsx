@@ -20,8 +20,7 @@ export default function UsulanAdminPage() {
   // tambahan state modal peminat
   const [showPeminatModal, setShowPeminatModal] = useState(false);
   const [peminatList, setPeminatList] = useState<any[]>([]);
-
-  const BASE_URL = "http://localhost:4001";
+const BASE_URL = "https://sinovabackend-production.up.railway.app";
 
   const mapStatus = (status?: string) => {
     if (status === "Menunggu") return "Tersedia";

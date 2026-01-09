@@ -140,13 +140,17 @@ const DashboardAdmin = () => {
           throw new Error("Token tidak ditemukan. Silakan login kembali.");
         }
 
-        const response = await fetch("http://localhost:4001/api/dashboard/dashboard-admin", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await fetch(
+  "https://sinovabackend-production.up.railway.app/api/dashboard/dashboard-admin",
+  {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  }
+);
+
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

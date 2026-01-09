@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import SidebarPenyedia from '@/components/ui/sidebar_penyedia';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4001';
+const API_URL = 'https://sinovabackend-production.up.railway.app';
 
 interface ImageItem {
   id: number;

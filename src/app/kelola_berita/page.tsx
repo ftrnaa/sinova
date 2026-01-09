@@ -18,7 +18,7 @@ interface Berita {
 }
 
 // ---------------- Config ----------------
-const API_URL = 'http://localhost:4001/api/berita';
+const API_URL = 'https://sinovabackend-production.up.railway.app';
 
 const statusConfig: Record<Status, { label: string; className: string }> = {
   publik: { label: 'Publik', className: 'bg-green-100 text-green-800 border-green-300' },

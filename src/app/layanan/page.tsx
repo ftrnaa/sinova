@@ -5,7 +5,7 @@ import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
 import { toast } from "react-hot-toast";
 
-const BASE_URL = "http://localhost:4001";
+const BASE_URL = "https://sinovabackend-production.up.railway.app";
 
 interface InputFieldProps {
   label: string;

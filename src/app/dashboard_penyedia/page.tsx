@@ -84,17 +84,19 @@ const Dashboard_penyedia = () => {
         }
 
         // GANTI URL INI SESUAI BACKEND ANDA
-        const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4001";
+        const API_URL = "https://sinovabackend-production.up.railway.app";
+
         
         console.log("Fetching from:", `${API_URL}/api/dashboardpenyedia`);
         
         const response = await fetch(`${API_URL}/api/dashboardpenyedia`, {
-          method: "GET",
-          headers: {
-            "Authorization": `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        });
+  method: "GET",
+  headers: {
+    "Authorization": `Bearer ${token}`,
+    "Content-Type": "application/json",
+  },
+});
+
 
         console.log("Response status:", response.status);
 

@@ -7,7 +7,7 @@ import { saveAs } from 'file-saver';
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4001';
+const API_URL = 'https://sinovabackend-production.up.railway.app';
 
 export default function LaporanAdmin() {
   const [data, setData] = useState<any[]>([]);

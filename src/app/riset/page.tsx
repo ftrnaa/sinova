@@ -36,7 +36,8 @@ export default function RisetPage() {
   // ============================
   const fetchKategoris = async () => {
     try {
-      const res = await fetch("http://localhost:4001/api/kategori");
+      const res = await fetch("https://sinovabackend-production.up.railway.app/api/kategori");
+
 
       if (!res.ok) {
         throw new Error(`HTTP error ${res.status}`);
@@ -74,8 +75,8 @@ export default function RisetPage() {
       if (kategori) params.append('kategori', kategori);
 
       const res = await fetch(
-        `http://localhost:4001/api/riset?${params.toString()}`
-      );
+  `https://sinovabackend-production.up.railway.app/api/riset?${params.toString()}`
+);
 
       if (!res.ok) {
         throw new Error(`HTTP error ${res.status}`);
